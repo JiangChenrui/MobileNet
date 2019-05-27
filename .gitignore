@@ -2,3 +2,4 @@
 experiments/
 floyd_requirements.txt
 .floyd*
+__pycache__

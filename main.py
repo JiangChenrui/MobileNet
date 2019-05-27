@@ -1,4 +1,4 @@
-from utils import parse_args, create_experiment_dirs, calculate_flops
+from utils import parse_args, create_experiment_dirs
 from model import MobileNet
 from train import Train
 from data_loader import DataLoader

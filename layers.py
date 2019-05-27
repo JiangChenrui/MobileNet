@@ -25,7 +25,7 @@ def __conv2d_p(name, x, w=None, num_filters=16, kernel_size=(3, 3), padding='SAM
         kernel_shape = [kernel_size[0], kernel_size[1], x.shape[-1], num_filters]
 
         with tf.name_scope('layer_weights'):
-            if w == None:
+            if w is None:
                 w = __variable_with_weight_decay(kernel_shape, initializer, l2_strength)
             __variable_summaries(w)
         with tf.name_scope('layer_biases'):

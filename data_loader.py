@@ -25,13 +25,21 @@ class DataLoader:
 
     def load_data(self):
         # Please make sure to change this function to load your train/validation/test data.
-        train_data = np.array([plt.imread('./data/test_images/0.jpg'), plt.imread('./data/test_images/1.jpg'),
-                      plt.imread('./data/test_images/2.jpg'), plt.imread('./data/test_images/3.jpg')])
+        train_data = np.array([
+            plt.imread('./data/test_images/0.jpg'),
+            plt.imread('./data/test_images/1.jpg'),
+            plt.imread('./data/test_images/2.jpg'),
+            plt.imread('./data/test_images/3.jpg')
+        ])
         self.X_train = train_data
         self.y_train = np.array([284, 264, 682, 2])
 
-        val_data = np.array([plt.imread('./data/test_images/0.jpg'), plt.imread('./data/test_images/1.jpg'),
-                    plt.imread('./data/test_images/2.jpg'), plt.imread('./data/test_images/3.jpg')])
+        val_data = np.array([
+            plt.imread('./data/test_images/0.jpg'),
+            plt.imread('./data/test_images/1.jpg'),
+            plt.imread('./data/test_images/2.jpg'),
+            plt.imread('./data/test_images/3.jpg')
+        ])
 
         self.X_val = val_data
         self.y_val = np.array([284, 264, 682, 2])
@@ -54,14 +62,19 @@ class DataLoader:
                 if new_epoch:
                     start_idx = 0
                     if self.shuffle:
-                        mask = np.random.choice(self.train_data_len, self.train_data_len, replace=False)
+                        mask = np.random.choice(
+                            self.train_data_len,
+                            self.train_data_len,
+                            replace=False)
                     else:
                         mask = np.arange(self.train_data_len)
                     new_epoch = False
 
                 # Batch mask selection
-                X_batch = self.X_train[mask[start_idx:start_idx + self.batch_size]]
-                y_batch = self.y_train[mask[start_idx:start_idx + self.batch_size]]
+                X_batch = self.X_train[mask[start_idx:start_idx +
+                                            self.batch_size]]
+                y_batch = self.y_train[mask[start_idx:start_idx +
+                                            self.batch_size]]
                 start_idx += self.batch_size
 
                 # Reset everything after the end of an epoch
@@ -96,4 +109,5 @@ class DataLoader:
                     start_idx = 0
                 yield X_batch, y_batch
         else:
-            raise ValueError("Please select a type from \'train\', \'val\', or \'test\'")
+            raise ValueError(
+                "Please select a type from \'train\', \'val\', or \'test\'")

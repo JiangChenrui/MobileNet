@@ -25,16 +25,20 @@ The paper uses ReLU6 as an activation function. ReLU6 was first introduced in [C
  matplotlib 2.0.2
  pillow 5.0.0
  ```
+
 ### Train and Test
+
 1. Prepare your data, and modify the data_loader.py/DataLoader/load_data() method.
 2. Modify the config/test.json to meet your needs.
 
 Note: If you want to test that the model is pretrained and working properly, I've added some test images from different classes in directory 'data/test_images'. All of them are classified correctly.
 
 ### Run
+
 ```
 python main.py config/test.json
 ```
+
 The file 'test.json' is just an example of a file. If you run it as is, it will test the model against the images in directory 'data/test_images'. You can create your own configuration file for training/testing.
 
 ## Benchmarking
